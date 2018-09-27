@@ -1,0 +1,31 @@
+// variable declarations
+      // array to hold the options
+      var choices = ["ROCK", "PAPER", "SCISSORS"];
+      var computerChoice;
+      var message = "";
+      var userChoice;
+      // while loop to allow the code run as long as the user does not type quit
+      while (userChoice != "QUIT") {
+        // the computer choice is a random selection from the choices array
+        // 3 is the length of the array note dont start counting from 0 here start from 1
+        computerChoice = choices[Math.floor(Math.random() * 3)];
+        // prompt to ask user to enter a choice and transfrom that entry to upper case
+        userChoice = prompt("choose either rock, paper or scissors").toUpperCase();
+        // if the user enters quit the following message will be displayed and the prog will terminate
+        if (userChoice == 'QUIT') {
+          message = 'You have quit the game';
+          // conditions of the game
+        } // end of quit if
+        else if (computerChoice == userChoice) {
+          message = ('Draw - the computers choice was - ' + computerChoice + ' and your choice was ' + userChoice + '.');
+        } // end of draw else if 
+        else if (((userChoice == "ROCK") && (computerChoice == "SCISSORS")) || ((userChoice == "SCISSORS") && (computerChoice == "PAPER")) || ((userChoice == "PAPER") && (computerChoice == "ROCK"))) {
+          message = ('You won - the computers choice was - ' + computerChoice + ' and your choice was ' + userChoice + '.');
+        }
+        // end of win else if
+        else {
+          message = ('You lost - the computers choice was - ' + computerChoice + ' and your choice was ' + userChoice + '.');
+        } // end of lost else
+        // alert depending on the choice
+        alert(message);
+      } // end of while
